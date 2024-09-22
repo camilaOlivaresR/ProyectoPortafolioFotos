@@ -3,15 +3,10 @@
     <strong>Title:</strong>
     <%= picture.title %>
   </p>
-
-  <p>
-    <strong>Content:</strong>
-    <%= picture.content %>
-  </p>
-
-  <p>
-    <strong>User:</strong>
-    <%= picture.user_id %>
-  </p>
+  <% if picture.image.attached? %>
+    <%= image_tag picture.image, class: 'img-fluid' %>
+  <% else %>
+    <p>No image attached</p>
+  <% end %>
 
 </div>

@@ -1,6 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @picture %>
+<%= render 'comments/picture_comments' %>
+
+ <%= render 'comments/form' %>
 
 <div>
   <%= link_to "Edit this picture", edit_picture_path(@picture) %> |
