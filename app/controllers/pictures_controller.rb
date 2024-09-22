@@ -4,6 +4,8 @@ class PicturesController < ApplicationController
     authorize_request(["author", "admin"])
   end
 
+
+
   # GET /pictures or /pictures.json
   def index
     @pictures = Picture.all
@@ -71,6 +73,6 @@ class PicturesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def picture_params
-      params.require(:picture).permit(:title, :content, :user_id, :image)
+      params.require(:picture).permit(:title, :content, :image)
     end
 end

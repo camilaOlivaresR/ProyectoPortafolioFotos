@@ -2,15 +2,17 @@
 
 <% content_for :title, "Pictures" %>
 
-<h1>Pictures</h1>
+<h1>All Pictures</h1>
 
-<div id="pictures">
-  <% @pictures.each do |picture| %>
-    <%= render picture %>
-    <p>
-      <%= link_to "Show this picture", picture %>
-    </p>
-  <% end %>
-</div>
+<% @pictures.each do |picture| %>
+  <div class="mb-4">
+    <%= link_to picture_path(picture) do %>
+      <%= render picture %>
+    <% end %>
+  </div>
+<% end %>
 
-<%= link_to "New picture", new_picture_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Upload New Picture', new_picture_path, class: 'btn btn-primary' %>
+<% end %>
+

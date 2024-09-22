@@ -59,15 +59,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
-  def create
-    user = User.create!(user_params)
-    session[:user_id] = user.id
-    redirect_to root_path
+
+
+  before_action :configure_permitted_parameters, 
+  if: :devise_controller?
+    
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :avatar])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :avatar])
   end
 
-  private
-    def user_params
-      params.require(:user).permit(:email_address, :password, :avatar)
-    end
+  def after_sign_in_path_for(resource)
+    pictures_path
   end
 
+  def authorize_request(kind = nil)
+      unless kind.include?(current_user.role)
+      redirect_to pictures_path, notice: "You are not authorized to perform this action"
+      end
+  end
+end
