@@ -10,8 +10,8 @@ amazon:
   service: S3
   access_key_id: <%= ENV['aws_access_key_id'] %>
   secret_access_key: <%= ENV['aws_secret_access_key'] %>
-  bucket: <%= ENV['aws_bucket_name'] %>
-  region: <%= ENV['aws_bucket_region'] %>
+  bucket: <%= ENV['aws_name'] %>
+  region: <%= ENV['aws_region'] %>
 
 
 # Remember not to checkin your GCS keyfile to a repository
