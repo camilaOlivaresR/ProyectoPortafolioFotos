@@ -1,7 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <% content_for :title, "Pictures" %>
-
+<% if user_signed_in? %>
+  <%= link_to 'Upload New Picture', new_picture_path, class: 'btn btn-primary' %>
+<% end %>
 <h1>All Pictures</h1>
 
 <% @pictures.each do |picture| %>
@@ -12,7 +14,5 @@
   </div>
 <% end %>
 
-<% if user_signed_in? %>
-  <%= link_to 'Upload New Picture', new_picture_path, class: 'btn btn-primary' %>
-<% end %>
+
 

@@ -4,7 +4,7 @@
     <%= picture.title %>
   </p>
   <% if picture.image.attached? %>
-    <%= image_tag picture.image, class: 'img-fluid' %>
+    <%= image_tag(picture.image, class: 'img-fluid mx-auto ',size: '500x300') %>
   <% else %>
     <p>No image attached</p>
   <% end %>
