@@ -1,5 +1,7 @@
 class PicturesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_picture, only: %i[ show edit update destroy ]
+
   before_action only: [:new, :create] do
     authorize_request(["author", "admin"])
   end

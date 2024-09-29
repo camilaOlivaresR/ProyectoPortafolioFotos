@@ -16,5 +16,5 @@ class User < ApplicationRecord
   
   
 
-  validates :name, :avatar, presence: true
+  validates :name, presence: true
 end
