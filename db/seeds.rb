@@ -9,7 +9,7 @@
 #   end
     author =   User.create!(
         name: 'karina',
-        email: 'karina.author@mail.com',
+        email: 'author@mail.com',
         password: '123456', 
         password_confirmation: '123456',
         role: %w[author].sample 
