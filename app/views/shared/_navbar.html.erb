@@ -21,12 +21,8 @@
                                   <% else %>
                                     Hola <%= current_user.email %>
                                   <% end %>
-                                  <% if current_user.avatar.attached? %>
                                   <br/>
-                                  <%= image_tag(current_user.avatar, class: 'img-thumbnail',size: '100x100') %>
-                                <% else %>
-                                  <%= image_tag("/default_profile.jpg", class: 'img-thumbnail',size: '100x100') %>
-                                <% end %>              
+                                  <%= image_tag(current_user.avatar, class: 'img-thumbnail',size: '100x100') if current_user.avatar.attached? %>          
                             <% else %>
                                     Dale registrate o conectate
                             <% end %>
