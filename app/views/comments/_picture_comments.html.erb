@@ -1,7 +1,7 @@
 <div>
 <% @comments.each do |comment| %>
 <p>
-<%= image_tag(comment.user.avatar, class: 'img-thumbnail',size: '100x100') %>
+<%= image_tag(comment.user.avatar, class: 'rounded-circle',size: '50x50') %>
 <%= comment.content %>
 </p>
 <% end %>
