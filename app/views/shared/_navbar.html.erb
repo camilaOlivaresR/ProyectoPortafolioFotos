@@ -15,14 +15,14 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <% if user_signed_in? %>
+                              <%= image_tag(current_user.avatar, class: 'rounded-circle',size: '100x100') if current_user.avatar.attached? %> 
                                   <% if current_user.name %>
                                     <br/>
                                     Hola <%= current_user.name %>
                                   <% else %>
                                     Hola <%= current_user.email %>
                                   <% end %>
-                                  <br/>
-                                  <%= image_tag(current_user.avatar, class: 'img-thumbnail',size: '100x100') if current_user.avatar.attached? %>          
+                                  <br/>         
                             <% else %>
                                     Dale registrate o conectate
                             <% end %>
